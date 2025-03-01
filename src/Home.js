@@ -10,7 +10,7 @@ const Stopwatch = () => {
     if (isRunning) {
       timer = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
-      }, 1000);
+      }, 900);
     } else {
       clearInterval(timer);
     }
@@ -26,14 +26,15 @@ const Stopwatch = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 bg-white shadow-lg rounded-2xl w-64">
-      <h1 className="text-2xl font-bold mb-4">Stopwatch</h1>
+    <div>
+      <h1>Stopwatch</h1>
       <p>Time: {formatTime(time)}</p>
       <div className="flex space-x-4">
-        <button onClick={() => setIsRunning(!isRunning)}>
+        <button type="button" onClick={() => setIsRunning(!isRunning)}>
           {isRunning ? "Stop" : "Start"}
         </button>
         <button
+          type="button"
           onClick={() => {
             setTime(0);
             setIsRunning(false);
